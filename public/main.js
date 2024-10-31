@@ -1,4 +1,9 @@
-document.getElementById('add').addEventListener('click'(event) => ouvrir(event));
-function ouvrir(event) {
+const btn = document.getElementById('add');
+const formModal = document.getElementById('form-modal');
 
-}
+
+btn.addEventListener('click',function (){
+ formModal.classList.remove('hidden');
+    
+
+});
