@@ -24,7 +24,7 @@ confermer.addEventListener('click', (event) => {
         description: description.value,
         date: date.value,
         propriety: propiety.value,
-        status: to_do_options.value
+        status: to_do_options.value,
     };
     Tasks.push(task);
     localStorage.setItem('Tasks', JSON.stringify(Tasks));
@@ -61,66 +61,56 @@ function afficheTache() {
             createHTML(done, i, task);
         }
     }
-    
+
 }
 
 function createHTML(place, i, task) {
     const box = document.createElement('div');
     box.className = 'flex flex-col h-34 pl-7';
+    let bgColor;
+    switch (task.propriety) {
+        case '1':
+            bgColor = 'bg-red-500';
+            break;
+        case '2':
+            bgColor = 'bg-orange-500';
+        case '3':
+            bgColor = 'bg-green-500';
+        default:
+            break;
+    }
     box.innerHTML = `
         <h4 class="text-xl">${task.title}</h4>
         <p class="text-sm text-black text-opacity-40">${task.description}</p>
         <p class="text-sm text-black text-opacity-50 pr-6 text-right">${task.date}</p>
-        <p class="text-sm text-black text-opacity-50 pr-6 text-left">${task.propiety}</p>
+        <p id="pro_color" class="text-sm text-white text-center w-1/6 rounded-xl ${bgColor}">P${task.propriety}</p>
         <div class="flex justify-around items-center pt-3 pr-3 pb-5">
-            <button onclick = 'deleteFunction(${i})' class="btn_delete w-9" data-index="${i}">
-                <img   src="/images/delete_24dp_F38686_FILL0_wght400_GRAD0_opsz24.png" alt="">
+            <button onclick='deleteFunction(${i})' class="btn_delete w-9" data-index="${i}">
+                <img src="/images/delete_24dp_F38686_FILL0_wght400_GRAD0_opsz24.png" alt="">
             </button>
-                  <div id="propriete"
-                        class="  flex  flex-col justify-center items-center gap-4 bg-white text-yellow-700">
-                      
-                     
-                        <select onchange='update(${i}, event.target.value)' class=" text-yellow-700 w-1/3 border-2 bg-amber-300 rounded-2xl " name=" statut"
-                        id="propiety">
-                        <option value=''>slect status</option>
-                        <option value="1">to do </option>
-                        <option value="2">doing</option>
-                        <option value="3">done</option>
-                    </select>
-                    </div>
-                     <div id="propriete"
-                        class="  flex  flex-col justify-center items-center gap-4 bg-white text-yellow-700">
-                      
-                     
-                        <select class=" text-yellow-700 w-1/3 border-2 bg-amber-300 rounded-2xl " name=" statut"
-                        id="propiety">
-                        <option value=''>slect status</option>
-                        <option value="1">P1 </option>
-                        <option value="2">P2</option>
-                        <option value="3">P3</option>
-                    </select>
-                    </div>
-           
-            <button class="w-9   h-9 border-2px bg-red-600 rounded-full hover:bg-red-700"></button>
+            <div id="propriete" class="flex flex-col justify-center items-center gap-4 bg-white text-yellow-700">      
+                <select onchange='update(${i}, event.target.value)' class="text-yellow-700 border-2 bg-amber-300 rounded-2xl" name="statut" id="status">
+                    <option value=''>select status</option>
+                    <option value="1">to do</option>
+                    <option value="2">doing</option>
+                    <option value="3">done</option>
+                </select>
+            </div>              
         </div>
     `;
-    place.appendChild(box);
-    
+
 }
-
-
+function change_color(){
+    let change = getElementById(pro_color);
+    if(change == 1){
+        change.classList.add('bg-black');
+    }
+}
 cancel.addEventListener('click', (event) => {
     event.preventDefault();
     formModal.classList.toggle('hidden');
 });
 
-// document.addEventListener('click', (event) => {
-//     if (event.target.classList.contains('btn_delete')) {
-//         const index = event.target.getAttribute('data-index');
-//         Tasks.splice(index, 1);
-//         afficheTache(); 
-// //     }
-// });
 function deleteFunction(i) {
     console.log('Current Tasks:', Tasks);
     console.log('Index to remove:', i);
@@ -142,7 +132,9 @@ function update(i, newStatus) {
     localStorage.setItem('Tasks', JSON.stringify(Tasks));
 
     afficheTache();
+    // change_color();
 }
+
 
 
 
