@@ -8,6 +8,7 @@ let description = document.getElementById('description');
 let date = document.getElementById('date');
 let propiety = document.getElementById('propiety');
 let to_do_options = document.getElementById('to_do_options');
+let to_do_cercle = document.getElementById('to_do_cercle');
 
 let Tasks = JSON.parse(localStorage.getItem('Tasks')) || [];
 console.log(Tasks);
@@ -29,7 +30,7 @@ confermer.addEventListener('click', (event) => {
     localStorage.setItem('Tasks', JSON.stringify(Tasks));
     clearInputFields();
     formModal.classList.toggle('hidden');
-
+    window.location.reload();
 });
 
 function clearInputFields() {
@@ -60,6 +61,7 @@ function afficheTache() {
             createHTML(done, i, task);
         }
     }
+    
 }
 
 function createHTML(place, i, task) {
@@ -69,7 +71,8 @@ function createHTML(place, i, task) {
         <h4 class="text-xl">${task.title}</h4>
         <p class="text-sm text-black text-opacity-40">${task.description}</p>
         <p class="text-sm text-black text-opacity-50 pr-6 text-right">${task.date}</p>
-        <div class="flex justify-around items-center pt-3 pr-4 pb-5">
+        <p class="text-sm text-black text-opacity-50 pr-6 text-left">${task.propiety}</p>
+        <div class="flex justify-around items-center pt-3 pr-3 pb-5">
             <button onclick = 'deleteFunction(${i})' class="btn_delete w-9" data-index="${i}">
                 <img   src="/images/delete_24dp_F38686_FILL0_wght400_GRAD0_opsz24.png" alt="">
             </button>
@@ -80,7 +83,19 @@ function createHTML(place, i, task) {
                         <select onchange='update(${i}, event.target.value)' class=" text-yellow-700 w-1/3 border-2 bg-amber-300 rounded-2xl " name=" statut"
                         id="propiety">
                         <option value=''>slect status</option>
-                        <option value="1">P1</option>
+                        <option value="1">to do </option>
+                        <option value="2">doing</option>
+                        <option value="3">done</option>
+                    </select>
+                    </div>
+                     <div id="propriete"
+                        class="  flex  flex-col justify-center items-center gap-4 bg-white text-yellow-700">
+                      
+                     
+                        <select class=" text-yellow-700 w-1/3 border-2 bg-amber-300 rounded-2xl " name=" statut"
+                        id="propiety">
+                        <option value=''>slect status</option>
+                        <option value="1">P1 </option>
                         <option value="2">P2</option>
                         <option value="3">P3</option>
                     </select>
@@ -90,6 +105,7 @@ function createHTML(place, i, task) {
         </div>
     `;
     place.appendChild(box);
+    
 }
 
 
@@ -112,7 +128,7 @@ function deleteFunction(i) {
     if (i >= 0 && i < Tasks.length) {
         Tasks.splice(i, 1);
         localStorage.setItem('Tasks', JSON.stringify(Tasks));
-        window.location.reload()
+        window.location.reload();
     } else {
         console.error('Invalid index:', i);
     }
@@ -127,4 +143,6 @@ function update(i, newStatus) {
 
     afficheTache();
 }
+
+
 
