@@ -19,6 +19,10 @@ add.addEventListener('click', () => {
 
 confermer.addEventListener('click', (event) => {
     event.preventDefault();
+    if(tilte_tache.value.trim() === '' || description.value.trim() === '' || date.value.trim()=== ''){
+        alert('please write all ');
+        return; 
+    }
     const task = {
         title: tilte_tache.value,
         description: description.value,
@@ -74,6 +78,7 @@ function createHTML(place, i, task) {
             break;
         case '2':
             bgColor = 'bg-orange-500';
+            break;
         case '3':
             bgColor = 'bg-green-500';
         default:
@@ -98,7 +103,7 @@ function createHTML(place, i, task) {
             </div>              
         </div>
     `;
-
+        place.appendChild(box);
 }
 function change_color(){
     let change = getElementById(pro_color);
@@ -124,16 +129,23 @@ function deleteFunction(i) {
     }
 }
 function update(i, newStatus) {
-    console.log('New Status:', newStatus);
-    console.log('Current Status:', Tasks[i].status);
+    // console.log('New Status:', newStatus);
+    // console.log('Current Status:', Tasks[i].status);
 
     Tasks[i].status = newStatus;
 
     localStorage.setItem('Tasks', JSON.stringify(Tasks));
 
     afficheTache();
-    // change_color();
+    
 }
+// function statique(place,i){
+//     const cercle = document.createElement('div');
+//     cercle.className = 'w-10 h-10 border-2px bg-black rounded-full  flex items-center justify-center';
+//      box.innerHTML = `
+//         <p class="">${task.length.propriety}</p>
+//         `
+// }
 
 
 

@@ -558,6 +558,10 @@ video {
   position: absolute;
 }
 
+.relative {
+  position: relative;
+}
+
 .bottom-\[7\%\] {
   bottom: 7%;
 }
@@ -568,6 +572,114 @@ video {
 
 .top-0 {
   top: 0px;
+}
+
+.left-36 {
+  left: 9rem;
+}
+
+.left-96 {
+  left: 24rem;
+}
+
+.left-\[\] {
+  left: ;
+}
+
+.left-\[90\%\] {
+  left: 90%;
+}
+
+.left-\[1\] {
+  left: 1;
+}
+
+.left-\[150\] {
+  left: 150;
+}
+
+.left-\[150\%\] {
+  left: 150%;
+}
+
+.bottom-\[\%\] {
+  bottom: %;
+}
+
+.bottom-\[9\%\] {
+  bottom: 9%;
+}
+
+.left-\[145\%\] {
+  left: 145%;
+}
+
+.top-56 {
+  top: 14rem;
+}
+
+.right-\[\] {
+  right: ;
+}
+
+.right-\[200\] {
+  right: 200;
+}
+
+.right-\[200\%\] {
+  right: 200%;
+}
+
+.right-\[100\%\] {
+  right: 100%;
+}
+
+.right-\[70\%\] {
+  right: 70%;
+}
+
+.left-12 {
+  left: 3rem;
+}
+
+.top-7 {
+  top: 1.75rem;
+}
+
+.top-3 {
+  top: 0.75rem;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.bottom-6 {
+  bottom: 1.5rem;
+}
+
+.right-3 {
+  right: 0.75rem;
+}
+
+.right-6 {
+  right: 1.5rem;
+}
+
+.bottom-4 {
+  bottom: 1rem;
+}
+
+.bottom-3 {
+  bottom: 0.75rem;
+}
+
+.bottom-8 {
+  bottom: 2rem;
+}
+
+.right-8 {
+  right: 2rem;
 }
 
 .z-50 {
@@ -839,6 +951,11 @@ video {
   background-color: rgb(249 115 22 / var(--tw-bg-opacity));
 }
 
+.bg-orange-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 186 116 / var(--tw-bg-opacity));
+}
+
 .p-3 {
   padding: 0.75rem;
 }
@@ -1002,8 +1119,68 @@ video {
   height: 5rem;
 }
 
+.hover\:h-\[\]:hover {
+  height: ;
+}
+
+.hover\:h-\[9rem\]:hover {
+  height: 9rem;
+}
+
+.hover\:h-\[4rem\]:hover {
+  height: 4rem;
+}
+
+.hover\:h-\[5rem\]:hover {
+  height: 5rem;
+}
+
+.hover\:h-\[3rem\]:hover {
+  height: 3rem;
+}
+
 .hover\:w-20:hover {
   width: 5rem;
+}
+
+.hover\:w-1:hover {
+  width: 0.25rem;
+}
+
+.hover\:w-16:hover {
+  width: 4rem;
+}
+
+.hover\:w-\[\]:hover {
+  width: ;
+}
+
+.hover\:w-\[17\]:hover {
+  width: 17;
+}
+
+.hover\:w-\[17re\]:hover {
+  width: 17re;
+}
+
+.hover\:w-\[17rem\]:hover {
+  width: 17rem;
+}
+
+.hover\:w-\[9rem\]:hover {
+  width: 9rem;
+}
+
+.hover\:w-\[4rem\]:hover {
+  width: 4rem;
+}
+
+.hover\:w-\[5rem\]:hover {
+  width: 5rem;
+}
+
+.hover\:w-\[3rem\]:hover {
+  width: 3rem;
 }
 
 .hover\:border-yellow-600:hover {
